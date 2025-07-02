@@ -1,0 +1,37 @@
+{% include 'head.html' %}
+
+<!-- Main section -->
+<main>
+    <h1>
+        Welcome to the
+    </h1>
+    <h1>
+        Department Portal.
+    </h1>
+    <p>Access resources, annoucments and more of University teaching department.</p>
+    <div class="div_btns"><a href="{{url_for('login')}}" class="login_btn2">Login</a></div>
+    <div class="container">
+        <div class="card">
+            <img src="../static/IMG/study_material_icon.png" alt="study_material_icon" class="card_icon">
+            <h3><a href="{{url_for('studymaterial')}}"> Study Material</a></h3>
+            <p>Explore and download <br>Study Material</p>
+        </div>
+        <div class="card">
+            <img src="../static/IMG/Annoucment_icon.png" alt="Annoucment_icon" class="card_icon">
+            <h3><a href="{{url_for('annoucment')}}"> Annoucments</a></h3>
+            <p>View latest <br>department updates.</p>
+        </div>
+        <div class="card">
+            <img src="../static/IMG/Timetable_icon.png" alt="Timetable_icon" class="card_icon">
+            <h3><a href="{{ url_for('download', filename=tt[0][3].replace('uploads/', '').replace('\\', '/'))}}"> Time
+                    Table</a></h3>
+            <p>Download and view latest Time table.</p>
+        </div>
+        <div class="card">
+            <img src="../static/IMG/Contact_us_icon.png" alt="Contact_us_icon" class="card_icon">
+            <h3><a href="{{url_for('contactus')}}">Contact Us</a></h3>
+            <p>Get in touch with us <br> for any enquiry.</p>
+        </div>
+    </div>
+</main>
+{% include 'footer.html' %}

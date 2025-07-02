@@ -1,0 +1,399 @@
+{% include 'head_dashb.html' %}
+    <main>
+        <h1>
+            Admin Dashboard
+        </h1>
+
+        <p>Access resources, annoucments and more of University teaching department.</p>
+        <div class="div_btns"><a href="{{url_for('logout')}}" class="login_btn2">Logout</a></div>
+
+        <div class="container">
+            <div class="card">
+                <img src="../static/IMG/study_material_icon.png" alt="study_material_icon" class="card_icon">
+                <h3><a href="#uploadstm" onclick="showBox('uploadstm')">Upload <br>Study Material</a></h3>
+                <p>Post new Study <br> Material</p>
+            </div>
+            <div class="card">
+                <img src="../static/IMG/Annoucment_icon.png" alt="Annoucment_icon" class="card_icon">
+                <h3><a href="#uploadannc" onclick="showBox('uploadannc')">Upload <br>Annoucments</a></h3>
+                <p>Post new department<br> updates.</p>
+            </div>
+            <div class="card">
+                <img src="../static/IMG/Student_reg_icon.png" alt="Contact_us_icon" class="card_icon">
+                <h3><a href="#student_form" onclick="showBox('student_form')">Student Registration</a></h3>
+                <p> Register new student<br> accounts.</p>
+            </div>
+            
+            <div class="card">
+                <img src="../static/IMG/Teacher_Reg_icom.png" alt="Contact_us_icon" class="card_icon">
+                <h3><a href="#teacher_form " onclick="showBox('teacher_form')">Teacher Registration</a></h3>
+                <p> Register new teacher<br> accounts.</p>
+            </div>
+
+        </div>
+        <div class="container">
+            
+            <div class="card">
+                <img src="../static/IMG/msg_icon.png" alt="Contact_us_icon" class="card_icon">
+                <h3><a href="#message" onclick="showBox('message')">Messages for Admin</a></h3>
+                <p> Messages for admin<br> Submitted by students</p>
+            </div>
+            <div class="card">
+                <img src="../static/IMG/Timetable_icon.png" alt="Timetable_icon" class="card_icon">
+                <h3><a href="#uploadtimetable" onclick="showBox('uploadtimetable')">Upload <br>Time Table</a></h3>
+                <p>Post new <br>Time table. </p>
+            </div>
+            <div class="card">
+                <img src="../static/IMG/teacher_icon2.png" alt="Contact_us_icon" class="card_icon">
+                <h3><a href="#list_teacher" onclick="showBox('list_teacher')">List of <br> Teachers</a></h3>
+                <p> Click here for<br> list of all Teachers</p>
+            </div>
+            <div class="card">
+                <img src="../static/IMG/student_icon2.png" alt="Contact_us_icon" class="card_icon">
+                <h3><a href="#list_student" onclick="showBox('list_student')">List of <br>Students</a></h3>
+                <p> Click here for<br> list of all Students</p>
+            </div>
+        </div>
+
+
+
+        <div class="reg" id="student_form">
+            <div class="container1">
+                <div class="formdiv">
+                    <form action="http://localhost:5000/stureg" method="POST" class="form">
+                        <a href="#" class="closebtn" onclick="closeBox('student_form')"> <i
+                                class="fa-solid fa-xmark"></i></a>
+                        <h2 class="h">Student Registration</h2>
+
+                        <label for="roll_no" class="lable">Roll No</label>
+                        <input type="int" name="rollno" class="input" placeholder="Enter ID" required>
+                        <label for="pass" class="lable"> Create Password</label>
+                        <input type="password" name="pass" class="input" placeholder="Password" required>
+                        <label for="name" class="lable"> Name</label>
+                        <input type="text" name="name" class="input" placeholder="Enter Name" required>
+                        <label for="email" class="lable">Email</label>
+                        <input type="email" name="email" class="input" placeholder="Enter Email" required>
+
+                        <label for="mobile_no" class="lable"> Mobile Number</label>
+                        <input type="int" name="mobile_no" class="input" placeholder="Enter Mobile Number" required>
+                        <label for="dob" class="lable"> DOB</label>
+                        <input type="date" name="dob" class="input" placeholder="" required>
+                        <label for="course" class="lable">Course</label>
+                        <input type="text" name="course" class="input" placeholder="Enter Course Name" required>
+                        <label for="startyear" class="lable">Start Year</label>
+                        <input type="number" name="startyear" min="1900" max="2100" placeholder="YYYY">
+                        <label for="endyear" class="lable">End Year</label>
+                        <input type="number" name="endyear" min="1900" max="2100" placeholder="YYYY"><br>
+                        <input type="submit" name="submit" value="Register" id="consub">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="reg" id="teacher_form">
+            <div class="container1">
+                <div class="formdiv">
+                    <form action="http://localhost:5000/techreg" method="POST" class="form">
+                        <a href="#" class="closebtn" onclick="closeBox('teacher_form')"> <i
+                                class="fa-solid fa-xmark"></i></a>
+                        <h2 class="h">Teacher Registration </h2>
+
+                        <label for="staff_id" class="lable">Teacher/Staff ID</label>
+                        <input type="int" name="staff_id" class="input" placeholder="Enter ID" required>
+                        <label for="pass" class="lable"> Create Password</label>
+                        <input type="password" name="pass" class="input" placeholder="Password" required>
+                        <label for="name" class="lable"> Name</label>
+                        <input type="text" name="name" class="input" placeholder="Enter Name" required>
+                        <label for="email" class="lable">Email</label>
+                        <input type="email" name="email" class="input" placeholder="Enter Email" required>
+
+                        <label for="mobile_no" class="lable"> Mobile Number</label>
+                        <input type="int" name="mobile_no" class="input" placeholder="Password" required>
+                        <label for="dob" class="lable"> DOB</label>
+                        <input type="date" name="dob" class="input" placeholder="" required>
+                        <label for="designation" class="lable"> Designation</label>
+                        <input type="text" name="designation" class="input" placeholder="Enter Designation" required>
+                        <label for="doj" class="lable">DOJ</label>
+                        <input type="date" name="doj" class="input" placeholder="" required>
+
+                        <input type="submit" name="submit" value="Register" id="consub">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="reg" id="uploadstm">
+            <div class="container1">
+                <div class="formdiv">
+                    <form action="http://localhost:5000/uploadstudy" method="POST" enctype="multipart/form-data"
+                        class="form">
+                        <a href="#" class="closebtn" onclick="closeBox('uploadstm')"> <i
+                                class="fa-solid fa-xmark"></i></a>
+                        <h2>Upload <br> Study Material</h2>
+                        <label for="filename" class="lable">File Name</label>
+                        <input type="text" name="filename" class="input" placeholder="Enter File Name" required>
+                        <label for="file" class="lable">File</label>
+                        <input type="file" name="file" class="input" required>
+                        <input type="submit" name="submit" value="Upload" id="consub">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="reg" id="uploadannc">
+            <div class="container1">
+                <div class="formdiv">
+                    <form action="http://localhost:5000/uploadannc" method="POST" enctype="multipart/form-data"
+                        class="form">
+                        <a href="#" class="closebtn" onclick="closeBox('uploadannc')"> <i
+                                class="fa-solid fa-xmark"></i></a>
+                        <h2>Upload <br>Announcment</h2>
+                        <label for="filename" class="lable">File Name</label>
+                        <input type="text" name="filename" class="input" placeholder="Enter File Name" required>
+                        <label for="file" class="lable">File</label>
+                        <input type="file" name="file" class="input" required>
+                        <input type="submit" name="submit" value="Upload" id="consub">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="reg" id="uploadtimetable">
+            <div class="container1">
+                <div class="formdiv">
+                    <form action="http://localhost:5000/uploadtimetable" method="POST" enctype="multipart/form-data"
+                        class="form">
+                        <a href="#" class="closebtn" onclick="closeBox('uploadtimetable')"> <i
+                                class="fa-solid fa-xmark"></i></a>
+                        <h2>Upload <br> Time Table</h2>
+                        <label for="filename" class="lable">File Name</label>
+                        <input type="text" name="filename" class="input" placeholder="Enter File Name" required>
+                        <label for="file" class="lable">File</label>
+                        <input type="file" name="file" class="input" required>
+                        <input type="submit" name="submit" value="Upload" id="consub">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="reg" id="message">
+            <div class="container1">
+                <div class="profile">
+
+                    <div class="profile_cont">
+                        <h2>
+                            Messages by Student
+
+                        </h2>
+                        <a href="#" class="closebtn" onclick="closeBox('message')"> <i
+                                class="fa-solid fa-xmark"></i></a>
+                        <table>
+
+                            <tr>
+                                <th>
+                                    Roll No
+                                </th>
+                                <th>
+                                    Subject
+                                </th>
+                                <th>
+                                    Message
+                                </th>
+                            </tr>
+                            {% for s in msg %}
+
+                            <tr>
+                                <td>
+                                    {{s[1]}}
+                                </td>
+                                <td>
+                                    {{s[2]}}
+                                </td>
+                                <td>
+                                    {{s[3]}}
+                                </td>
+                            </tr>
+                            {% endfor %}
+
+                        </table>
+                        <br>
+                        <h2>
+                            Queries from Contact Us from 
+                        </h2>
+                        <table>
+
+                            <tr>
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Subject
+                                </th>
+                                <th>
+                                    Message
+                                </th>
+                            </tr>
+                            {% for s in contact_msg %}
+
+                            <tr>
+                                <td>
+                                    {{s[1]}}
+                                </td>
+                                <td>
+                                    {{s[2]}}
+                                </td>
+                                <td>
+                                    {{s[3]}}
+                                </td>
+                            </tr>
+                            {% endfor %}
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="reg" id="list_student">
+            <div class="container1">
+                <div class="profile">
+
+                    <div class="profile_cont">
+                        <h2>
+                            list of students
+
+                        </h2>
+                        <a href="#" class="closebtn" onclick="closeBox('list_student')"> <i
+                                class="fa-solid fa-xmark"></i></a>
+                        <table>
+                            <tr>
+                                <th>
+                                    Roll No
+                                </th>
+                                <th>
+                                    Name
+                                </th>
+
+                                <th>
+                                    email
+                                </th>
+
+                                <th>
+                                    Mobile No
+                                </th>
+
+                                <th>
+                                    Date of Birth
+                                </th>
+                                <th>
+                                    Course
+                                </th>
+                                <th>
+                                    Start Year
+                                </th>
+                                <th>
+                                    End Year
+                                </th>
+                            </tr>
+                            {% for details in stu %}
+
+                            <tr>
+                                
+                                <td>
+                                        {{details[0]}}
+                                    </td>
+                                    <td>
+                                        {{details[2]}}
+                                    </td>
+                                    <td>
+                                        {{details[3]}}
+                                    </td>
+                                    <td>
+                                        {{details[4]}}
+                                    </td>
+                                    <td>
+                                        {{details[5]}}
+                                    </td>
+                                    <td>
+                                        {{details[6]}}
+                                    </td>
+                                    <td>
+                                        {{details[7]}}
+                                    </td>
+                                    <td>
+                                        {{details[8]}}
+                                    </td>
+                            </tr>
+                            {% endfor %}
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="reg" id="list_teacher">
+            <div class="container1">
+                <div class="profile">
+                    <div class="profile_cont">
+                        <h2>
+                            list of teachers
+                        </h2>
+                        <a href="#" class="closebtn" onclick="closeBox('list_teacher')"> <i
+                                class="fa-solid fa-xmark"></i></a>
+                        <table>
+                            <tr>
+                                <th>
+                                    Staff ID
+                                </th>
+                                <th>
+                                    Name
+                                </th>
+
+                                <th>
+                                    email
+                                </th>
+
+                                <th>
+                                    Mobile No
+                                </th>
+
+                                <th>
+                                    Date of Birth
+                                </th>
+                                <th>
+                                    Designation
+                                </th>
+                                <th>
+                                    Date of joining
+                                </th>
+                            </tr>
+                            {% for details in teach %}
+                            <tr>
+                                <td>
+                                    {{details[0]}}
+                                </td>
+                                <td>
+                                    {{details[2]}}
+                                </td>
+                                <td>
+                                    {{details[3]}}
+                                </td>
+                                <td>
+                                    {{details[4]}}
+                                </td>
+                                <td>
+                                    {{details[5]}}
+                                </td>
+                                <td>
+                                    {{details[6]}}
+                                </td>
+                                <td>
+                                    {{details[7]}}
+                                </td>
+                            </tr>
+                            {% endfor %}
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+    {% include 'footer.html' %}

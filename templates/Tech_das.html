@@ -1,0 +1,142 @@
+{% include 'head_dashb.html' %}
+    <main>
+        <h1>
+            Teacher Dashboard
+        </h1>
+        <p>Access resources, annoucments and more of University teaching department.</p>
+        <div class="div_btns"><a href="{{url_for('logout')}}" class="login_btn2">Logout</a></div>
+        <div class="container">
+            <div class="card">
+                <img src="../static/IMG/study_material_icon.png" alt="study_material_icon" class="card_icon">
+                <h3><a href="#uploadstm" onclick="showBox('uploadstm')">Upload <br>Study Material</a></h3>
+                <p>Post new Study <br> Material</p>
+            </div>
+            <div class="card">
+                <img src="../static/IMG/Annoucment_icon.png" alt="Annoucment_icon" class="card_icon">
+                <h3><a href="#uploadannc" onclick="showBox('uploadannc')">Upload <br>Annoucments</a></h3>
+                <p>Post new department<br> updates.</p>
+            </div>
+            <div class="card">
+                <img src="../static/IMG/Timetable_icon.png" alt="Timetable_icon" class="card_icon">
+                <h3><a href="#uploadtimetable" onclick="showBox('uploadtimetable')">Upload <br>Time Table</a></h3>
+                <p>Post new <br>Time table. </p>
+            </div>
+        </div>
+        <div class="reg" id="uploadstm">
+            <div class="container1">
+                <div class="formdiv">
+                    <form action="http://localhost:5000/uploadstudy" method="POST" enctype="multipart/form-data" class="form">
+                        <a href="#" class="closebtn" onclick="closeBox('uploadstm')"> <i
+                                class="fa-solid fa-xmark"></i></a>
+                        <h2>Upload <br> Study Material</h2>
+                        <label for="filename" class="lable">File Name</label>
+                        <input type="text" name="filename" class="input" placeholder="Enter File Name" required>
+                        <label for="file" class="lable">File</label>
+                        <input type="file" name="file" class="input" required>
+                        <input type="submit" name="submit" value="Upload" id="consub">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="reg" id="uploadannc">
+            <div class="container1">
+                <div class="formdiv">
+                    <form action="http://localhost:5000/uploadannc" method="POST" enctype="multipart/form-data" class="form">
+                        <a href="#" class="closebtn" onclick="closeBox('uploadannc')"> <i
+                                class="fa-solid fa-xmark"></i></a>
+                        <h2>Upload <br>Announcment</h2>
+                        <label for="filename" class="lable">File Name</label>
+                        <input type="text" name="filename" class="input" placeholder="Enter File Name" required>
+                        <label for="file" class="lable">File</label>
+                        <input type="file" name="file" class="input" required>
+                        <input type="submit" name="submit" value="Upload" id="consub">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="reg" id="uploadtimetable">
+            <div class="container1">
+                <div class="formdiv">
+                    <form action="http://localhost:5000/uploadtimetable" method="POST" enctype="multipart/form-data" class="form">
+                        <a href="#" class="closebtn" onclick="closeBox('uploadtimetable')"> <i
+                                class="fa-solid fa-xmark"></i></a>
+                                <h2>Upload <br> Study Material</h2>
+                        <label for="filename" class="lable">File Name</label>
+                        <input type="text" name="filename" class="input" placeholder="Enter File Name" required>
+                        <label for="file" class="lable">File</label>
+                        <input type="file" name="file" class="input" required>
+                        <input type="submit" name="submit" value="Upload" id="consub">
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="profile">
+            <h2>
+            Teacher Profile
+        </h2>
+            <div class="profile_cont">
+                <table>
+                        <tr>
+                            <th>
+                                Staff ID
+                            </th>
+                            <td>
+                                {{details[0]}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Name
+                            </th>
+                            <td>
+                                {{details[2]}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                email
+                            </th>
+                            <td>
+                                {{details[3]}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Mobile No
+                            </th>
+                            <td>
+                                {{details[4]}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Date of Birth
+                            </th>
+                            <td>
+                                {{details[5]}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Designation
+                            </th>
+                            <td>
+                                {{details[6]}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Date of joining
+                            </th>
+                            <td>
+                                {{details[7]}}
+                            </td>
+                        </tr>
+                        
+                    </table>
+            </div>
+        </div>
+
+    </main>
+    {% include 'footer.html' %}

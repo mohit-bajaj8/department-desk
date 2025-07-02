@@ -1,0 +1,63 @@
+{% include 'head.html' %}
+<main>
+    <h1>
+        Download
+    </h1>
+    <h1>
+        Study Materials.
+    </h1>
+    <p>Explore and download course material for your studies.</p>
+    <div class="container">
+        <div class="annouc1">
+            {% for s in stu %}
+            <div class="annouc">
+                <img src="../static/IMG/study_material_icon.png" alt="Annoucment_icon" class="annouc_icon">
+                <a href="{{ url_for('download', filename='studymaterial/' ~ s[1])}}">
+                    <li>
+                        {{s[3]}}
+                    </li>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</main>    
+
+{% include 'footer.html' %}
+
+<!-- <main>
+        <div class="studymaterial" >
+            <div class="stucard">
+                <h2>Study Material</h2>
+                <ul>
+                        {% for s in stu %}
+                    <a href=>
+                        <li>
+                                {{s[3]}}
+                        </li>
+                    </a>
+                        {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+    </main> -->
+
+
+<!--<a href="#">-->
+<!--                        <li>-->
+<!--                            Notice regarding Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, quaerat.-->
+<!--                        </li>-->
+<!--                    </a>-->
+
+<!--                    <a href="#">-->
+<!--                        <li>-->
+<!--                            Announcment 2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, iste.-->
+<!--                        </li>-->
+<!--                    </a>-->
+
+<!--                    <a href="#">-->
+<!--                        <li>-->
+<!--                            Announcment 3 Lorem ipsum dolor sit amet consectetur-->
+<!--                        </li>-->
+<!--                    </a>-->

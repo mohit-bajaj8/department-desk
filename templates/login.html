@@ -1,0 +1,28 @@
+{% include 'head.html' %}
+<main>
+    <h1>Login</h1>
+    <div class="container">
+        <div class="formdiv" id="login">
+            <form action="http://localhost:5000/login_req" method="POST" class="form">
+
+                <label for="username" class="lable"> Username</label>
+                <input type="text" name="username" class="input" placeholder="Username" required>
+
+                <label for="password" class="lable"> Password</label>
+                <input type="password" name="password" class="input" placeholder="Password" required>
+
+                <div class="form_sub_div">
+                    <label for="admin" class="lable">Admin</label>
+                    <input type="radio" id="admin" name="user" value="Admin">
+                    <label for="teacher" class="lable">Teacher/Staff</label>
+                    <input type="radio" id="teacher" name="user" value="Teacher">
+                    <label for="student" class="lable">Student</label><br>
+                    <input type="radio" id="student" name="user" value="Student">
+                </div>
+                <input type="submit" name="submit" value="Login" id="consub">
+            </form>
+
+        </div>
+    </div>
+</main>
+{% include 'footer.html' %}

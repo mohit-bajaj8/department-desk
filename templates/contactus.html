@@ -1,0 +1,26 @@
+{% include 'head.html' %}
+<main>
+    <h1>
+            Contact Us
+        </h1>
+        <p>for any query contact us</p>
+    <div class="container">
+        
+        <div class="formdiv">
+            
+            <form action="http://localhost:5000/contactform" method="POST" class="form">
+                <label for="name" class="lable"> Name</label>
+                <input type="text" name="name" class="input" placeholder="Enter your name" required>
+
+                <label for="email" class="lable"> Email</label>
+                <input type="email" name="email" class="input" placeholder="Enter your email" required>
+
+                <label for="message" class="lable">Message</label>
+                <textarea name="message" id="message"  rows="10" class="textbox" required></textarea>
+                <input type="submit" name="submit" value="Submit" id="consub">
+            </form>
+            
+        </div>
+    </div>
+</main>
+{% include 'footer.html' %}

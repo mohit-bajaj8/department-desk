@@ -1,0 +1,25 @@
+{% include 'head.html' %}
+<main>
+    <h1>
+        Welcome to the
+    </h1>
+    <h1>
+        Department Portal.
+    </h1>
+    <p>Here are the latest Announcements and updates of our department.</p>
+    <div class="container">
+        <div class="annouc1">
+            {% for s in stu %}
+            <div class="annouc">
+                <img src="../static/IMG/Annoucment_icon.png" alt="Annoucment_icon" class="annouc_icon">
+                <a href="{{ url_for('download', filename='annoucments/' ~ s[1])}}">
+                    <li>
+                        {{s[3]}}
+                    </li>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+{% include 'footer.html' %}

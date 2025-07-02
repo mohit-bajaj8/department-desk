@@ -1,0 +1,93 @@
+{% include 'head_dashb.html' %}
+    <main>
+        <div class="profile">
+            <h2>
+                Student Profile
+            </h2>
+            <div class="profile_cont">
+                <table>
+
+                    <tr>
+                        <th>
+                            Roll No
+                        </th>
+                        <td>
+                            {{details[0]}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <td>
+                            {{details[2]}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            email
+                        </th>
+                        <td>
+                            {{details[3]}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Mobile No
+                        </th>
+                        <td>
+                            {{details[4]}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Date of Birth
+                        </th>
+                        <td>
+                            {{details[5]}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Course
+                        </th>
+                        <td>
+                            {{details[6]}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            Start Year
+                        </th>
+                        <td>
+                            {{details[7]}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            End Year
+                        </th>
+                        <td>
+                            {{details[8]}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="profile">
+            <h2>
+                Message Box
+            </h2>
+            <div class="profile_cont">
+                <form action="http://localhost:5000/studentmsg" method="POST" class="form">
+                    <label for="sub" class="lable"> Subject </label>
+                    <input type="text" id="sub" name="subject" class="input" placeholder="Enter Subject" required>
+                    <label for="message" class="lable"> Message</label>
+                    <textarea name="message" id="message" rows="10" required></textarea>
+                    <input type="submit" name="submit" value="Submit" id="consub">
+                </form>
+            </div>
+        </div>
+    </main>
+
+    {% include 'footer.html' %}

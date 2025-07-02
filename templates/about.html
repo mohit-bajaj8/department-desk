@@ -1,0 +1,310 @@
+        <!-- <div class="container1">
+            <div class="card1">
+                <h2> <a href="{{url_for('annoucment')}}"> Annoucments / Notices</a></h2>
+                <ul>
+                      {% for s in stu %}
+
+                    <a href="{{ url_for('download', filename='annoucments/' ~ s[1])}}">
+                        <li>
+                                {{s[3]}}
+                        </li>
+                    </a>
+                        {% endfor %}
+
+                </ul>
+            </div>
+            <div class="card2" id="quicklinks">
+                <h2>Quick Links</h2>
+                <div class="quicklink">
+                    <a href="{{url_for('login')}}">Login</a>
+                    <a href="{{url_for('studymaterial')}}">Study Material</a>
+                    <a href="{{url_for('annoucment')}}">Announcments</a>
+                    <a href="{{ url_for('download', filename=tt[0][3].replace('uploads/', '').replace('\\', '/'))}}">Time Table</a>
+                </div>
+            </div>
+        </div>
+
+         Courses offered -->
+        <!-- <div class="container">
+            <h2>Courses Offered</h2>
+            <div class="cour">
+
+                <div class="carcard">
+                    <h2>M.C.A</h2>
+                    <p>Duration: 2 Year</p>
+                    <p>Type: Regular</p>
+                </div>
+                <div class="carcard">
+                    <h2>M.SC</h2>
+                    <p>Duration: 2 Year</p>
+                    <p>Type: Regular</p>
+                </div>
+                <div class="carcard">
+                    <h2>M.Tech</h2>
+                    <p>Duration: 2.5 Year</p>
+                    <p>Type: Part-Time</p>
+                </div>
+                <div class="carcard">
+                    <h2>B.Tech</h2>
+                    <p>Duration: 2 Year</p>
+                    <p>Type: Regular</p>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- About us -->
+
+        <!-- <div class="containabout">
+            <h2>About Us</h2>
+            <p>Department of Computer Science & Engineering was established in 2000 as a part of the then PG Regional
+            Centre of XYZ University, XYZ. In April 2003, it became a part of XYZ University, Sirsa. Presently,
+            headed by Prof. ABC , this department is running four courses viz. MCA, M.Sc(AI and DS),B.Tech(AI and
+            ML), M. Tech. (CSE)-Part Time (2.5 years) and Ph. D. (Computer Science).</p>
+
+            <p>APPROVED BY ALL INDIA COUNCIL FOR TECHNICAL EDUCATION (AICTE).</p>
+        </div> -->
+
+
+
+
+
+
+         <!-- <div class="dash"> -->
+
+        <!-- <div class="sidebar">
+            <ul>
+
+                <li><a href="#stureg">Student Registration</a></li>
+                <li><a href="#techreg">Teacher Registration</a></li>
+                <li><a href="#Announcment">Upload Announcment</a></li>
+                <li><a href="#timetable">Time table</a></li>
+                <li><a href="#studymaterial">Study Material</a></li>
+                <li><a href="{{url_for('logout')}}">Logout</a></li>
+            </ul>
+        </div> -->
+        <!-- <div class="mainbar">
+            <div class="container1">
+                <div class="card1" id="annouc">
+                <h2> <a href="{{url_for('annoucment')}}"> Annoucments / Notices</a></h2>
+                <ul>
+                      {% for s in stu %}
+                    <a href="{{ url_for('download', filename='annoucments/' ~ s[1])}}">
+                        <li>
+                                {{s[3]}}
+                        </li>
+                    </a>
+                        {% endfor %}
+
+                </ul>
+                </div>
+                <div class="card1" id="techreg">
+                    <form action="http://localhost:5000/techreg" method="POST">
+                        <h2 class="h">Teacher Registration</h2>
+
+                        <label for="staff_id" class="lable">Teacher/Staff ID</label>
+                        <input type="int" name="staff_id" class="input" placeholder="Enter ID" required>
+                        <label for="pass" class="lable"> Create Password</label>
+                        <input type="password" name="pass" class="input" placeholder="Password" required>
+                        <label for="name" class="lable"> Name</label>
+                        <input type="text" name="name" class="input" placeholder="Enter Name" required>
+                        <label for="email" class="lable">Email</label>
+                        <input type="email" name="email" class="input" placeholder="Enter Email" required>
+
+                        <label for="mobile_no" class="lable"> Mobile Number</label>
+                        <input type="int" name="mobile_no" class="input" placeholder="Password" required>
+                        <label for="dob" class="lable"> DOB</label>
+                        <input type="date" name="dob" class="input" placeholder="" required>
+                        <label for="designation" class="lable"> Designation</label>
+                        <input type="text" name="designation" class="input" placeholder="Enter Designation" required>
+                        <label for="doj" class="lable">DOJ</label>
+                        <input type="date" name="doj" class="input" placeholder="" required>
+
+                        <input type="submit" name="submit" value="Register" class="consub">
+                    </form>
+                </div>
+                <div class="card1" id="stureg">
+                    <form action="http://localhost:5000/stureg" method="POST">
+                        <h2 class="h">Student Registration</h2>
+
+                        <label for="roll_no" class="lable">Roll No</label>
+                        <input type="int" name="rollno" class="input" placeholder="Enter ID" required>
+                        <label for="pass" class="lable"> Create Password</label>
+                        <input type="password" name="pass" class="input" placeholder="Password" required>
+                        <label for="name" class="lable"> Name</label>
+                        <input type="text" name="name" class="input" placeholder="Enter Name" required>
+                        <label for="email" class="lable">Email</label>
+                        <input type="email" name="email" class="input" placeholder="Enter Email" required>
+
+                        <label for="mobile_no" class="lable"> Mobile Number</label>
+                        <input type="int" name="mobile_no" class="input" placeholder="Password" required>
+                        <label for="dob" class="lable"> DOB</label>
+                        <input type="date" name="dob" class="input" placeholder="" required>
+                        <label for="course" class="lable">Course</label>
+                        <input type="text" name="course" class="input" placeholder="Enter Course Name" required>
+                        <label for="startyear" class="lable">Start Year</label>
+                        <input type="number" name="startyear" min="1900" max="2100" placeholder="YYYY">
+                        <label for="endyear" class="lable">End Year</label>
+                        <input type="number" name="endyear" min="1900" max="2100" placeholder="YYYY"><br>
+                        <input type="submit" name="submit" value="Register" class="consub">
+                    </form>
+                </div>
+                <div class="card1" id="studymaterial">
+                    <h2 class="h">Upload Study Material</h2>
+                    <form action="http://localhost:5000/uploadstudy" method="POST" enctype="multipart/form-data">
+                        <label for="filename" class="lable">File Name</label>
+                        <input type="text" name="filename" class="input" placeholder="Enter File Name" required>
+                        <label for="file" class="lable">File</label>
+                        <input type="file" name="file" class="input" required>
+                        <input type="submit" name="submit" value="Upload" class="consub">
+                    </form>
+                </div>
+                <div class="card1" id="Announcment">
+                    <h2 class="h">Upload Announcment</h2>
+                    <form action="http://localhost:5000/uploadannc" method="POST" enctype="multipart/form-data">
+                        <label for="filename" class="lable">File Name</label>
+                        <input type="text" name="filename" class="input" placeholder="Enter File Name" required>
+                        <label for="file" class="lable">File</label>
+                        <input type="file" name="file" class="input" required>
+                        <input type="submit" name="submit" value="Upload" class="consub">
+                    </form>
+                </div>
+                 <div class="card1" id="timetable">
+                    <h2 class="h">Upload Time Table</h2>
+                    <form action="http://localhost:5000/uploadtimetable" method="POST" enctype="multipart/form-data">
+                        <label for="filename" class="lable">File Name</label>
+                        <input type="text" name="filename" class="input" placeholder="Enter File Name" required>
+                        <label for="file" class="lable">File</label>
+                        <input type="file" name="file" class="input" required>
+                        <input type="submit" name="submit" value="Upload" class="consub">
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    
+    </div> -->
+
+
+
+    <!-- teacher dashboard contact -->
+     <div class="dash">
+
+        <div class="sidebar">
+            <ul>
+
+                <!-- <li><a href="#stureg">Student Registration</a></li>
+                <li><a href="#techreg">Teacher Registration</a></li> -->
+                <li><a href="#annoucment">Upload Announcment</a></li>
+                <li><a href="">Time table</a></li>
+                <li><a href="#studymaterial">Study Material</a></li>
+                <li><a href="{{url_for('logout')}}">Logout</a></li>
+            </ul>
+        </div>
+        <div class="mainbar">
+            <div class="container1">
+                <div class="card1" id="annouc">
+                     <h2>Announcments / Notices</h2>
+                <ul>
+                      {% for s in stu %}
+                    <a href="{{ url_for('download', filename='annoucments/' ~ s[1])}}">
+                        <li>
+                                {{s[3]}}
+                        </li>
+                    </a>
+                        {% endfor %}
+
+                </ul>
+                </div>
+                <div class="card1" id="details">
+                    <h2>User Information</h2>
+                    <table>
+
+                        <tr>
+                            <th>
+                                Staff ID
+                            </th>
+                            <td>
+                                {{details[0]}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Name
+                            </th>
+                            <td>
+                                {{details[2]}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                email
+                            </th>
+                            <td>
+                                {{details[3]}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Mobile No
+                            </th>
+                            <td>
+                                {{details[4]}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Date of Birth
+                            </th>
+                            <td>
+                                {{details[5]}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Designation
+                            </th>
+                            <td>
+                                {{details[6]}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Date of joining
+                            </th>
+                            <td>
+                                {{details[7]}}
+                            </td>
+                        </tr>
+                        
+                    </table>
+                </div>
+                <div class="card1" id="studymaterial">
+                    <h2 class="h">Upload Study Material</h2>
+                    <form action="http://localhost:5000/uploadstudy" method="POST" enctype="multipart/form-data">
+                    <label for="filename" class="lable">File Name</label>
+                    <input type="text" name="filename" class="input" placeholder="Enter File Name" required>
+                    <label for="file" class="lable">File</label>
+                    <input type="file" name="file" class="input" required>
+                    <input type="submit" name="submit" value="Upload" class="consub">
+                    </form>
+                </div>
+                <div class="card1" id="Announcment">
+                    <h2 class="h">Upload Announcment</h2>
+                    <form action="http://localhost:5000/uploadannc" method="POST" enctype="multipart/form-data">
+                    <label for="filename" class="lable">File Name</label>
+                    <input type="text" name="filename" class="input" placeholder="Enter File Name" required>
+                    <label for="file" class="lable">File</label>
+                    <input type="file" name="file" class="input" required>
+                    <input type="submit" name="submit" value="Upload" class="consub">
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    </div>

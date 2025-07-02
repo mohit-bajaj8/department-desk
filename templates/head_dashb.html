@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="min-width=device-min-width, initial-scale=1.0">
+    <title>Department Desk</title>
+    <!--    <link rel="stylesheet" href="style.css">-->
+    <!--    {{url_for('static',filename='CSS\style.css')}}-->
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='CSS/admin.css')}}">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="background"> </div>
+    <!-- Header section -->
+    <header>
+        <nav class="nav">
+            <h1><i class="fa-solid fa-u" style="color: #3a76de; padding-right: 1vw;"></i>University</h1>
+            <ul class="nav_ul">
+                <li class="nav_li">
+                    <a href="{{url_for('index')}}">Home</a>
+                </li>
+
+                <li class="nav_li">
+                    <a href="{{url_for('contactus')}}">Contact Us</a>
+                </li>
+                <li class="nav_li">
+                    <!--                    <a href="contactus.html">Contact Us</a>-->
+                    <a href="{{url_for('course')}}">Courses</a>
+                </li>
+                <li class="nav_li">
+                    <a href="{{url_for('studymaterial')}}">Study Material</a>
+                </li>
+                <li class="nav_li">
+                    <!--                    <a href="contactus.html">Contact Us</a>-->
+                    <a href="{{url_for('annoucment')}}">Announcment</a>
+                </li>
+                <li>
+                    <!--                    <a href="login.html">Login</a>-->
+
+                    <a href="{{url_for('logout')}}" class="login_btn">Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
