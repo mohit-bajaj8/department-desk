@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 02, 2025 at 02:08 PM
+-- Generation Time: Aug 08, 2025 at 12:05 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `login` int(11) NOT NULL,
-  `pass` varchar(30) DEFAULT NULL,
+  `pass` varchar(200) DEFAULT NULL,
   `name` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -38,7 +38,8 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`login`, `pass`, `name`) VALUES
-(123, 'moh', 'Test1');
+(120, 'scrypt:32768:8:1$i9wfhzZ23774Q0iW$aa684036a561b41cec243b79414d4f6ff87f06ba1e153b9a8a8505a0a4b867ab1b743a8bfe3c9be12b19dd66d5889d14f361f5c2e75536888d35249fba63b630', 'Mohit'),
+(130, 'scrypt:32768:8:1$shXLC5LF1EcuOaXm$f233fc13605fa0d0154e6b51160531a560dcc5ff6c12b3a356006476fdf95078900d45f30dbaa0672a916d37792ab798b74e139971415fabc71a0d65d7d6391a', 'Mohit');
 
 -- --------------------------------------------------------
 
@@ -92,7 +93,7 @@ INSERT INTO `contactus` (`id`, `name`, `email`, `message`) VALUES
 
 CREATE TABLE `student` (
   `roll_no` int(11) NOT NULL,
-  `pass` varchar(30) DEFAULT NULL,
+  `pass` varchar(200) DEFAULT NULL,
   `name` varchar(30) DEFAULT NULL,
   `email` varchar(30) DEFAULT NULL,
   `mobile_no` bigint(20) DEFAULT NULL,
@@ -107,8 +108,8 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`roll_no`, `pass`, `name`, `email`, `mobile_no`, `dob`, `course`, `startyear`, `endyear`) VALUES
-(23114, 'q', 'q', 'mohit@gm.com', 9991991919, '2020-02-12', 'mca', '2020', '2023'),
-(23115, 'test', 'test', 'test@gmail.com', 9876543210, '2006-06-09', 'msc', '2020', '2023');
+(23116, 'scrypt:32768:8:1$VX84BpShyuESU', 'Mohit', 'moh@gmailc.o', 99, '2000-09-12', 'mca', '2023', '2025'),
+(23117, 'scrypt:32768:8:1$sVRrUdSVkbfHIT3d$b7596a05a673c6525f2efc3a9a797eb01f95bdd728cd4234b61f9c7b2d5fa3376c9151017085746eec8a199de5bce0e09878e21d61b65bf8ad141485da63b7b8', 'Mohit', 'moh@gmailc.o', 99, '2025-08-16', 'mca', '2023', '2025');
 
 -- --------------------------------------------------------
 
@@ -162,7 +163,7 @@ INSERT INTO `studymat` (`id`, `filename`, `filepath`, `filetitle`) VALUES
 
 CREATE TABLE `teacher` (
   `staff_id` int(11) NOT NULL,
-  `pass` varchar(30) DEFAULT NULL,
+  `pass` varchar(200) DEFAULT NULL,
   `name` varchar(30) DEFAULT NULL,
   `email` varchar(30) DEFAULT NULL,
   `mobile_no` bigint(20) DEFAULT NULL,
@@ -176,8 +177,7 @@ CREATE TABLE `teacher` (
 --
 
 INSERT INTO `teacher` (`staff_id`, `pass`, `name`, `email`, `mobile_no`, `dob`, `designation`, `doj`) VALUES
-(1, 'qwe', 'Mohit', 'mohit@gm.com', 9991991919, '2001-02-12', 'professor', '2020-11-01'),
-(125, 'q', 'q', 'mohit@gm.com', 9991991919, '2025-06-10', 'a', '2025-06-20');
+(130, 'scrypt:32768:8:1$shXLC5LF1EcuOaXm$f233fc13605fa0d0154e6b51160531a560dcc5ff6c12b3a356006476fdf95078900d45f30dbaa0672a916d37792ab798b74e139971415fabc71a0d65d7d6391a', 'Mohit', 'moh@gmailc.o', 9898967208, '1989-10-10', 'Asst. Professor', '2001-01-10');
 
 -- --------------------------------------------------------
 
