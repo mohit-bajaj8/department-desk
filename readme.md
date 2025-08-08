@@ -32,6 +32,6 @@
 ├── static/                 # CSS, JS, and image files
 ├── templates/              # HTML templates for all dashboards and pages
 ├── app.py                  # Main Flask app
-├── database.sql            # MySQL table schema
+├── database.sql            # Database table schema
 ├── requirements.txt        # Python dependencies
 └── README.md               # Project documentation
