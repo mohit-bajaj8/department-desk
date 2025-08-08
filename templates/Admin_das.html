@@ -26,7 +26,7 @@
             
             <div class="card">
                 <img src="../static/IMG/Teacher_Reg_icom.png" alt="Contact_us_icon" class="card_icon">
-                <h3><a href="#teacher_form " onclick="showBox('teacher_form')">Teacher Registration</a></h3>
+                <h3><a href="#teacher_form " onclick="showBox('teacher_form')">Staff Registration</a></h3>
                 <p> Register new teacher<br> accounts.</p>
             </div>
 
@@ -95,7 +95,7 @@
                     <form action="http://localhost:5000/techreg" method="POST" class="form">
                         <a href="#" class="closebtn" onclick="closeBox('teacher_form')"> <i
                                 class="fa-solid fa-xmark"></i></a>
-                        <h2 class="h">Teacher Registration </h2>
+                        <h2 class="h">Staff Registration </h2>
 
                         <label for="staff_id" class="lable">Teacher/Staff ID</label>
                         <input type="int" name="staff_id" class="input" placeholder="Enter ID" required>
@@ -114,7 +114,8 @@
                         <input type="text" name="designation" class="input" placeholder="Enter Designation" required>
                         <label for="doj" class="lable">DOJ</label>
                         <input type="date" name="doj" class="input" placeholder="" required>
-
+                        <label for="admin" class="lable">Is admin: </label>
+                        <input type="checkbox" name="admin">
                         <input type="submit" name="submit" value="Register" id="consub">
                     </form>
                 </div>

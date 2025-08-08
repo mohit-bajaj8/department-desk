@@ -2,6 +2,7 @@
 from flask import Flask, render_template,render_template_string,request,session,url_for,redirect,send_from_directory
 from flask_mysqldb import MySQL
 import os
+from werkzeug.security import generate_password_hash, check_password_hash
 from datetime import datetime
 app=Flask(__name__)
 app.config['MYSQL_HOST']='localhost'
@@ -35,6 +36,9 @@ def invalid_cred():
                                                         window.location.href = '/login'; 
                                                     </script>
                                                 """)
+
+
+
 @app.route('/')
 def index():
     cur = mysql.connection.cursor()
@@ -114,11 +118,12 @@ def login_req():
             if user == 'Admin':
                 cur = mysql.connection.cursor()
                 cur.execute("USE dms_db;")
-                q = cur.execute("select * from admin where login = %s and pass = %s;", (log, pas))
+                cur.execute("SELECT * FROM admin WHERE login = %s;", (log,))
+                result = cur.fetchone()
                 mysql.connection.commit()
-                if q > 0:
-                    detail = cur.fetchone()
-                    session['username'] = detail
+                # use login:130 and password: moh
+                if result and check_password_hash(result[1], pas):
+                    session['username'] = result
                     cur.close()
                     return redirect(url_for('Admin_das'))
                 else:
@@ -127,11 +132,11 @@ def login_req():
             elif user == 'Teacher':
                 cur = mysql.connection.cursor()
                 cur.execute("USE dms_db;")
-                q = cur.execute("select * from teacher where staff_id = %s and pass = %s;", (log, pas))
+                cur.execute("SELECT * FROM teacher WHERE staff_id = %s;", (log,))
+                result = cur.fetchone()
                 mysql.connection.commit()
-                if q > 0:
-                    detail = cur.fetchone()
-                    session['username'] = detail
+                if result and check_password_hash(result[1], pas):
+                    session['username'] = result
                     cur.close()
                     return redirect(url_for('Tech_das'))
                 else:
@@ -140,11 +145,11 @@ def login_req():
             elif user == 'Student':
                 cur = mysql.connection.cursor()
                 cur.execute("USE dms_db;")
-                q = cur.execute("select * from student where roll_no = %s and pass=%s;", (log,pas))
+                cur.execute("SELECT * FROM student WHERE roll_no = %s;", (log,))
+                result = cur.fetchone()
                 mysql.connection.commit()
-                detail = cur.fetchone()
-                if q > 0 :
-                    session['username'] = detail
+                if result and check_password_hash(result[1], pas):
+                    session['username'] = result
                     cur.close()
                     return redirect(url_for('Stu_das'))
                 else:
@@ -249,16 +254,21 @@ def techreg():
         if request.method == 'POST':
             staff_id = request.form['staff_id']
             passw = request.form['pass']
+            hashed_pass = generate_password_hash(passw)
             name = request.form['name']
             email = request.form['email']
             mobile_no = request.form['mobile_no']
             dob = request.form['dob']
             designation = request.form['designation']
             doj = request.form['doj']
+            is_admin=request.form.get('admin')
             cur = mysql.connection.cursor()
             cur.execute("USE dms_db;")
             cur.execute("INSERT INTO teacher VALUES (%s, %s, %s, %s, %s, %s, %s, %s)",
-                        (staff_id, passw, name, email, mobile_no, dob, designation, doj))
+                        (staff_id, hashed_pass, name, email, mobile_no, dob, designation, doj))
+            if is_admin:
+                cur.execute("INSERT INTO admin(login,pass,name) VALUES (%s, %s, %s)",
+                            (staff_id, hashed_pass, name))
             mysql.connection.commit()
             cur.close()
             return render_template_string("""
@@ -277,6 +287,7 @@ def stureg():
         if request.method == 'POST':
             rollno = request.form['rollno']
             passw = request.form['pass']
+            hashed_pass = generate_password_hash(passw)
             name = request.form['name']
             email = request.form['email']
             mobile_no = request.form['mobile_no']
@@ -287,7 +298,7 @@ def stureg():
             cur = mysql.connection.cursor()
             cur.execute("USE dms_db;")
             cur.execute("INSERT INTO student VALUES (%s, %s, %s, %s, %s, %s, %s, %s,%s)",
-                        (rollno, passw, name, email, mobile_no, dob, course, startyear, endyear))
+                        (rollno, hashed_pass, name, email, mobile_no, dob, course, startyear, endyear))
             mysql.connection.commit()
             cur.close()
             return render_template_string("""
