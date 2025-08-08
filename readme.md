@@ -17,9 +17,9 @@
 
 ## 🧰 Tech Stack
 
-- **Frontend**: HTML, CSS, JavaScript, Bootstrap
+- **Frontend**: HTML, CSS, JavaScript
 - **Backend**: Python, Flask
-- **Database**: MySQL
+- **Database**: Phpmyadmin, SQL
 - **Tools**: Git, GitHub, VS Code
 
 ---
